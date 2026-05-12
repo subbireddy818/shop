@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react'
-import { useParams, useNavigate, Link } from 'react-router-dom'
+import { useParams, useNavigate } from 'react-router-dom'
 import { allPlants, Plant } from '../data/plants'
 import { useCart } from '../context/CartContext'
 import { CategoriesSection } from '../components/CategoriesSection'
