@@ -1,0 +1,65 @@
+<section class="w-full bg-[#FDF6EC] py-12 border-y border-[#D4AF37]/10">
+  <div class="max-w-7xl mx-auto px-6">
+    <div class="grid grid-cols-2 md:grid-cols-4 gap-8">
+      {% for block in section.blocks %}
+        <div class="flex flex-col items-center text-center gap-3 group" {{ block.shopify_attributes }}>
+          <div class="w-12 h-12 flex items-center justify-center rounded-full bg-white shadow-sm border border-[#D4AF37]/20 group-hover:border-[#6A1039] transition-colors duration-300">
+            <span class="material-symbols-outlined text-[#6A1039] text-[24px]">
+              {{ block.settings.icon }}
+            </span>
+          </div>
+          <div class="flex flex-col gap-1">
+            <p class="font-heading font-bold text-[11px] md:text-[13px] tracking-[1.5px] uppercase text-[#1A1A1A]">
+              {{ block.settings.title }}
+            </p>
+            <p class="font-body text-[10px] md:text-[11px] text-[#444444] leading-tight">
+              {{ block.settings.text }}
+            </p>
+          </div>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Trust Badges",
+  "settings": [],
+  "blocks": [
+    {
+      "type": "badge",
+      "name": "Badge",
+      "settings": [
+        {
+          "type": "text",
+          "id": "icon",
+          "label": "Material Icon Name",
+          "default": "verified"
+        },
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "text",
+          "id": "text",
+          "label": "Subtext"
+        }
+      ]
+    }
+  ],
+  "presets": [
+    {
+      "name": "Trust Badges",
+      "blocks": [
+        { "type": "badge", "settings": { "icon": "verified", "title": "Authentic Heritage", "text": "Ethically sourced spiritual tools" } },
+        { "type": "badge", "settings": { "icon": "local_shipping", "title": "Free Shipping", "text": "On all orders above ₹1,999" } },
+        { "type": "badge", "settings": { "icon": "lock", "title": "Secure Payment", "text": "100% encrypted transactions" } },
+        { "type": "badge", "settings": { "icon": "support_agent", "title": "Devoted Support", "text": "Reach out for spiritual guidance" } }
+      ]
+    }
+  ]
+}
+{% endschema %}

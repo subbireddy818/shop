@@ -1,0 +1,21 @@
+{
+  "current": "Default",
+  "presets": {
+    "Default": {
+      "sections": {
+        "header": {
+          "type": "header",
+          "settings": {
+            "announcement_text": "Free shipping on orders over ₹1,999"
+          }
+        },
+        "footer": {
+          "type": "footer",
+          "settings": {
+            "description": "Sacred Realm is dedicated to bringing authentic spiritual heritage and divine energy tools into every home."
+          }
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,127 @@
+<section class="w-full pb-16 md:pb-24 lg:pb-32 pt-0 bg-background relative overflow-visible">
+  <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="flex flex-col gap-12">
+      <div class="flex flex-col items-center gap-4 text-center animate-fade-in-up">
+        <h2 class="font-heading font-[800] text-[22px] md:text-[32px] text-[#1A1A1A] tracking-[3px] uppercase">
+          {{ section.settings.title }}
+        </h2>
+        {% if section.settings.text != blank %}
+          <p class="font-body font-[400] text-[14px] text-[#444444] leading-[1.7] max-w-3xl">
+            {{ section.settings.text }}
+          </p>
+        {% endif %}
+      </div>
+      
+      <div class="grid grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-6 gap-y-12">
+        {%- assign collection = collections[section.settings.collection] -%}
+        {% for product in collection.products limit: section.settings.limit %}
+          <div class="flex flex-col gap-4 group cursor-pointer">
+            <div class="relative aspect-[4/5] overflow-hidden bg-surface-container-low rounded-[24px] border border-[#D4AF37]/10 shadow-sm">
+              <a href="{{ product.url }}">
+                <img
+                  src="{{ product.featured_image | image_url: width: 600 }}"
+                  alt="{{ product.title }}"
+                  class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
+                />
+              </a>
+              
+              <form action="/cart/add" method="post" enctype="multipart/form-data">
+                <input type="hidden" name="id" value="{{ product.variants.first.id }}">
+                <button
+                  type="submit"
+                  class="absolute bottom-3 right-3 w-10 h-10 flex items-center justify-center rounded-full bg-white border border-[#D4AF37] text-[#6A1039] shadow-sm transition-all duration-300 hover:shadow-md hover:scale-110 active:scale-95 z-10"
+                >
+                  <span class="material-symbols-outlined text-[18px]">add_shopping_cart</span>
+                </button>
+              </form>
+              
+              {% if product.compare_at_price > product.price %}
+                <div class="absolute top-4 left-4 px-2 py-1 bg-accent text-white text-[10px] font-bold rounded-sm shadow-sm">
+                  SALE
+                </div>
+              {% endif %}
+            </div>
+            
+            <a href="{{ product.url }}" class="flex flex-col items-center text-center gap-1">
+              <p class="font-heading font-[600] text-[15px] text-[#6A1039] group-hover:opacity-80 transition-opacity line-clamp-1 px-2">
+                {{ product.title }}
+              </p>
+              <p class="font-body font-bold text-sm text-[#444444]">
+                {{ product.price | money }}
+              </p>
+            </a>
+          </div>
+        {% else %}
+          {% for i in (1..section.settings.limit) %}
+            <div class="flex flex-col gap-4 group">
+              <div class="relative aspect-[4/5] overflow-hidden bg-gray-100 rounded-[24px] border border-dashed border-gray-300">
+                {{ 'product-' | append: i | placeholder_svg_tag: 'w-full h-full' }}
+              </div>
+              <div class="flex flex-col items-center text-center gap-1">
+                <p class="font-heading font-[600] text-[15px] text-[#6A1039]">Product Title</p>
+                <p class="font-body font-bold text-sm text-[#444444]">$99.00</p>
+              </div>
+            </div>
+          {% endfor %}
+        {% endfor %}
+      </div>
+      
+      {% if section.settings.show_view_all %}
+        <div class="flex justify-center mt-12">
+          <a
+            href="{{ collection.url }}"
+            class="group flex h-14 items-center justify-center gap-3 rounded-none border-b-2 border-[#6A1039] px-4 text-base font-bold text-[#6A1039] transition-all duration-300 hover:opacity-70 font-heading tracking-[2px] uppercase"
+          >
+            <span>Explore Collection</span>
+            <span class="material-symbols-outlined text-lg transition-transform group-hover:translate-x-1">arrow_forward</span>
+          </a>
+        </div>
+      {% endif %}
+    </div>
+  </div>
+</section>
+
+{% schema %}
+{
+  "name": "Featured Products",
+  "settings": [
+    {
+      "type": "text",
+      "id": "title",
+      "label": "Heading",
+      "default": "Best Sellers"
+    },
+    {
+      "type": "textarea",
+      "id": "text",
+      "label": "Subheading",
+      "default": "Explore timeless spiritual idols and energy tools inspired by the teachings."
+    },
+    {
+      "type": "collection",
+      "id": "collection",
+      "label": "Collection"
+    },
+    {
+      "type": "range",
+      "id": "limit",
+      "min": 4,
+      "max": 12,
+      "step": 4,
+      "label": "Product Limit",
+      "default": 4
+    },
+    {
+      "type": "checkbox",
+      "id": "show_view_all",
+      "label": "Show View All",
+      "default": true
+    }
+  ],
+  "presets": [
+    {
+      "name": "Featured Products"
+    }
+  ]
+}
+{% endschema %}

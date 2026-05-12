@@ -1,0 +1,116 @@
+<footer class="bg-white border-t border-[#D4AF37]/10 pt-20 pb-12">
+  <div class="max-w-[1400px] mx-auto px-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 lg:gap-8">
+    {% comment %} Brand Column {% endcomment %}
+    <div class="flex flex-col gap-6">
+      <a href="/" class="block w-48">
+        {% if section.settings.logo != blank %}
+          <img src="{{ section.settings.logo | image_url: width: 400 }}" alt="{{ shop.name }}" class="w-full h-auto">
+        {% else %}
+          <span class="font-heading font-bold text-2xl">{{ shop.name }}</span>
+        {% endif %}
+      </a>
+      <p class="font-body text-[14px] text-[#444444] leading-[1.8]">
+        {{ section.settings.description }}
+      </p>
+      <div class="flex gap-4">
+        {% if settings.social_instagram_link != blank %}
+          <a href="{{ settings.social_instagram_link }}" class="w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center hover:bg-[#6A1039] hover:text-white transition-all">
+            <span class="material-symbols-outlined text-[20px]">photo_camera</span>
+          </a>
+        {% endif %}
+        {% if settings.social_facebook_link != blank %}
+          <a href="{{ settings.social_facebook_link }}" class="w-10 h-10 rounded-full border border-[#D4AF37]/20 flex items-center justify-center hover:bg-[#6A1039] hover:text-white transition-all">
+            <span class="material-symbols-outlined text-[20px]">facebook</span>
+          </a>
+        {% endif %}
+      </div>
+    </div>
+
+    {% comment %} Menu Columns {% endcomment %}
+    {% for block in section.blocks %}
+      <div class="flex flex-col gap-6">
+        <h4 class="font-heading font-bold text-[13px] tracking-[2px] uppercase text-[#1A1A1A]">
+          {{ block.settings.title }}
+        </h4>
+        <nav class="flex flex-col gap-3">
+          {% for link in linklists[block.settings.menu].links %}
+            <a href="{{ link.url }}" class="font-body text-[14px] text-[#444444] hover:text-[#6A1039] transition-colors">
+              {{ link.title }}
+            </a>
+          {% endfor %}
+        </nav>
+      </div>
+    {% endfor %}
+
+    {% comment %} Newsletter Column {% endcomment %}
+    <div class="flex flex-col gap-6">
+      <h4 class="font-heading font-bold text-[13px] tracking-[2px] uppercase text-[#1A1A1A]">
+        Devoted Newsletter
+      </h4>
+      <p class="font-body text-[14px] text-[#444444]">
+        Join our spiritual community for exclusive heritage updates.
+      </p>
+      {% form 'customer', class: 'flex flex-col gap-3' %}
+        <input type="hidden" name="contact[tags]" value="newsletter">
+        <div class="relative">
+          <input
+            type="email"
+            name="contact[email]"
+            placeholder="Your Email"
+            class="w-full h-12 bg-gray-50 border border-gray-200 rounded-full px-6 text-[14px] focus:outline-none focus:border-[#6A1039] transition-all"
+            required
+          >
+          <button type="submit" class="absolute right-1 top-1 h-10 w-10 bg-[#6A1039] text-white rounded-full flex items-center justify-center hover:opacity-90 transition-opacity">
+            <span class="material-symbols-outlined text-[20px]">arrow_forward</span>
+          </button>
+        </div>
+      {% endform %}
+    </div>
+  </div>
+
+  <div class="max-w-[1400px] mx-auto px-6 mt-20 pt-8 border-t border-[#D4AF37]/10 flex flex-col md:flex-row justify-between items-center gap-6">
+    <p class="font-body text-[12px] text-[#444444]">
+      &copy; {{ 'now' | date: "%Y" }} {{ shop.name }}. Built with Devotion.
+    </p>
+    <div class="flex gap-6">
+      <img src="https://cdn.shopify.com/s/files/1/0533/2089/files/payment-methods.png" alt="Payment Methods" class="h-6 opacity-70">
+    </div>
+  </div>
+</footer>
+
+{% schema %}
+{
+  "name": "Footer",
+  "settings": [
+    {
+      "type": "image_picker",
+      "id": "logo",
+      "label": "Logo"
+    },
+    {
+      "type": "textarea",
+      "id": "description",
+      "label": "Description",
+      "default": "Sacred Realm is dedicated to bringing authentic spiritual heritage and divine energy tools into every home."
+    }
+  ],
+  "blocks": [
+    {
+      "type": "link_list",
+      "name": "Menu",
+      "settings": [
+        {
+          "type": "text",
+          "id": "title",
+          "label": "Title"
+        },
+        {
+          "type": "link_list",
+          "id": "menu",
+          "label": "Menu"
+        }
+      ]
+    }
+  ]
+}
+{% endschema %}

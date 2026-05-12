@@ -1,0 +1,32 @@
+{
+  "sections": {
+    "hero": {
+      "type": "hero",
+      "settings": {
+        "title": "Trusted by 50,000+ Devotees",
+        "subheading": "Sacred Realm Heritage",
+        "text": "Bringing Devotion to Your Doorstep with Authentic Spiritual Products."
+      }
+    },
+    "categories": {
+      "type": "categories",
+      "settings": {}
+    },
+    "trust_badges": {
+      "type": "trust-badges",
+      "settings": {}
+    },
+    "featured_products": {
+      "type": "featured-products",
+      "settings": {
+        "title": "Best Sellers"
+      }
+    }
+  },
+  "order": [
+    "hero",
+    "categories",
+    "trust_badges",
+    "featured_products"
+  ]
+}
