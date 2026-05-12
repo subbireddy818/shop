@@ -309,12 +309,12 @@ export const ProductDetail: React.FC = () => {
                     alt={p.name}
                     className="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105"
                   />
-                  <div className="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-white border border-[#D4AF37] text-[#7B1C1C] opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
+                  <div className="absolute bottom-4 right-4 w-12 h-12 flex items-center justify-center rounded-full bg-white border border-[#D4AF37] text-[#6A1039] opacity-0 group-hover:opacity-100 transition-all duration-300 shadow-lg">
                     <span className="material-symbols-outlined text-[20px]">add_shopping_cart</span>
                   </div>
                 </div>
                 <div className="flex flex-col items-center text-center gap-1">
-                  <p className="font-heading font-[600] text-[14px] text-[#7B1C1C] uppercase tracking-[1px] line-clamp-1 px-2">
+                  <p className="font-heading font-[600] text-[14px] text-[#6A1039] uppercase tracking-[1px] line-clamp-1 px-2">
                     {p.name}
                   </p>
                   <p className="font-body font-bold text-sm text-[#1A1A1A]">

@@ -1,5 +1,5 @@
 import React, { useState, useEffect, useRef } from 'react'
-import { useNavigate, useLocation, Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import { allPlants, Plant } from '../data/plants'
 import { useCart } from '../context/CartContext'
 
@@ -9,26 +9,18 @@ interface UnifiedHeaderProps {
 }
 
 export const UnifiedHeader: React.FC<UnifiedHeaderProps> = ({ 
-  showSearch: initialShowSearch = true, 
   onSearchChange 
 }) => {
-  const navigate = useNavigate()
   const location = useLocation()
   const { getTotalItems, setIsDrawerOpen } = useCart()
   
-  const [isScrolled, setIsScrolled] = useState(false)
+  
   const [searchQuery, setSearchQuery] = useState('')
   const [isSearchFocused, setIsSearchFocused] = useState(false)
   const [searchResults, setSearchResults] = useState<Plant[]>([])
   const searchRef = useRef<HTMLDivElement>(null)
 
-  useEffect(() => {
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
-  }, [])
+
 
   useEffect(() => {
     const handleClickOutside = (event: MouseEvent) => {
