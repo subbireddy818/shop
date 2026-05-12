@@ -1,0 +1,50 @@
+[
+  {
+    "name": "theme_info",
+    "theme_name": "Sacred Realm",
+    "theme_author": "Antigravity",
+    "theme_version": "1.0.0",
+    "theme_documentation_url": "https://help.shopify.com",
+    "theme_support_url": "https://support.shopify.com"
+  },
+  {
+    "name": "Colors",
+    "settings": [
+      {
+        "type": "color",
+        "id": "colors_primary",
+        "label": "Primary Color",
+        "default": "#6A1039"
+      },
+      {
+        "type": "color",
+        "id": "colors_accent",
+        "label": "Accent Color",
+        "default": "#D4AF37"
+      },
+      {
+        "type": "color",
+        "id": "colors_background",
+        "label": "Background Color",
+        "default": "#FDF6EC"
+      }
+    ]
+  },
+  {
+    "name": "Typography",
+    "settings": [
+      {
+        "type": "font_picker",
+        "id": "type_header_font",
+        "label": "Header Font",
+        "default": "montserrat_n4"
+      },
+      {
+        "type": "font_picker",
+        "id": "type_body_font",
+        "label": "Body Font",
+        "default": "montserrat_n4"
+      }
+    ]
+  }
+]
