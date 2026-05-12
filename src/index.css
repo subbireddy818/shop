@@ -2,18 +2,33 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  box-sizing: border-box;
+@layer base {
+  body {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-[#444444] bg-[#FDF6EC];
+    font-size: 14px;
+    line-height: 1.7;
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    scroll-behavior: smooth;
+    overflow-x: hidden;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Montserrat', sans-serif;
+    @apply text-[#1A1A1A] uppercase;
+    letter-spacing: 3px;
+  }
+
+  h2 {
+    @apply text-[22px] md:text-[32px] font-[800];
+  }
 }
 
-body {
-  margin: 0;
-  padding: 0;
-  font-family: 'Inter', sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  scroll-behavior: smooth;
-  overflow-x: hidden;
+* {
+  box-sizing: border-box;
 }
 
 html {
@@ -42,40 +57,6 @@ html {
     'opsz' 24
 }
 
-/* Smooth animations */
-@keyframes fadeInUp {
-  from {
-    opacity: 0;
-    transform: translateY(30px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.animate-fade-in-up {
-  animation: fadeInUp 0.6s ease-out;
-}
-
-/* Custom scrollbar */
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f6f8f6;
-}
-
-::-webkit-scrollbar-thumb {
-  background: #11d452;
-  border-radius: 5px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background: #0fb844;
-}
-
 /* Glass morphism effect */
 .glass {
   background: rgba(255, 255, 255, 0.1);
@@ -87,21 +68,7 @@ html {
 .navbar-blur {
   backdrop-filter: blur(20px) saturate(180%);
   -webkit-backdrop-filter: blur(20px) saturate(180%);
-  background: rgba(246, 248, 246, 0.75);
-}
-
-.dark .navbar-blur {
-  background: rgba(16, 34, 22, 0.75);
-}
-
-/* Ensure navbar stays on top - removed conflicting styles */
-
-/* Gradient text */
-.gradient-text {
-  background: linear-gradient(135deg, #11d452 0%, #0fb844 100%);
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-  background-clip: text;
+  background: rgba(253, 246, 236, 0.75);
 }
 
 /* Hide scrollbar for category menu */

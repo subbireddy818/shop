@@ -6,11 +6,11 @@ import { WhatsAppButton } from '../components/WhatsAppButton'
 
 export const Cart: React.FC = () => {
   const navigate = useNavigate()
-  const { cartItems, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart()
+  const { cart, removeFromCart, updateQuantity, clearCart, getTotalPrice } = useCart()
 
   const totalPrice = getTotalPrice()
 
-  if (cartItems.length === 0) {
+  if (cart.length === 0) {
     return (
       <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
         <UnifiedHeader />
@@ -55,7 +55,7 @@ export const Cart: React.FC = () => {
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-6 sm:gap-8">
             {/* Cart Items */}
             <div className="lg:col-span-2 space-y-4">
-              {cartItems.map((item) => {
+              {cart.map((item) => {
                 const price = parseInt(item.price.replace('₹', '').replace(',', ''))
                 return (
                   <div

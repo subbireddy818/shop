@@ -1,10 +1,9 @@
 import { BrowserRouter, Routes, Route } from 'react-router-dom'
-import { CartProvider } from './context/CartContext'
+import { CartProvider, useCart } from './context/CartContext'
 import { UnifiedHeader } from './components/UnifiedHeader'
 import { HeroSection } from './components/HeroSection'
 import { CategoriesSection } from './components/CategoriesSection'
 import { FeaturedPlantsSection } from './components/FeaturedPlantsSection'
-import { OffersSection } from './components/OffersSection'
 import { YouTubeSection } from './components/YouTubeSection'
 import { TestimonialsSection } from './components/TestimonialsSection'
 import { Footer } from './components/Footer'
@@ -18,70 +17,14 @@ import { ContactFooter } from './components/ContactFooter'
 import { ProductDetail } from './pages/ProductDetail'
 import { Cart } from './pages/Cart'
 import { Checkout } from './pages/Checkout'
+import { CartDrawer } from './components/CartDrawer'
 
-function Home() {
+const AppContent = () => {
+  const { isDrawerOpen, setIsDrawerOpen } = useCart()
+  
   return (
-    <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark overflow-x-hidden">
-      <UnifiedHeader />
-      <main className="flex-grow w-full">
-        <div className="pt-24 sm:pt-32 md:pt-40 lg:pt-52">
-          <CategoriesSection />
-        </div>
-        <HeroSection />
-        <FeaturedPlantsSection />
-        <OffersSection />
-        <YouTubeSection />
-        <TestimonialsSection />
-      </main>
-      <Footer />
-      <WhatsAppButton />
-    </div>
-  )
-}
-
-function CatalogPage() {
-  return (
-    <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark overflow-x-hidden">
-      <UnifiedHeader showSearch={true} />
-      <div className="pt-24 sm:pt-32 md:pt-40">
-        <Catalog />
-      </div>
-      <CatalogFooter />
-      <WhatsAppButton />
-    </div>
-  )
-}
-
-function AboutPage() {
-  return (
-    <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark overflow-x-hidden">
-      <UnifiedHeader />
-      <div className="pt-24 sm:pt-32 md:pt-40 lg:pt-52">
-        <About />
-      </div>
-      <AboutFooter />
-      <WhatsAppButton />
-    </div>
-  )
-}
-
-function ContactPage() {
-  return (
-    <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark font-display text-text-light dark:text-text-dark overflow-x-hidden">
-      <UnifiedHeader />
-      <div className="pt-24 sm:pt-32 md:pt-40 lg:pt-52">
-        <Contact />
-      </div>
-      <ContactFooter />
-      <WhatsAppButton />
-    </div>
-  )
-}
-
-function App() {
-  return (
-    <CartProvider>
-      <BrowserRouter>
+    <div className="relative flex min-h-screen w-full flex-col bg-background font-body text-on-surface overflow-x-hidden">
+      <CartDrawer isOpen={isDrawerOpen} onClose={() => setIsDrawerOpen(false)} />
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/catalog" element={<CatalogPage />} />
@@ -91,6 +34,73 @@ function App() {
         <Route path="/about" element={<AboutPage />} />
         <Route path="/contact" element={<ContactPage />} />
       </Routes>
+    </div>
+  )
+}
+
+function Home() {
+  return (
+    <>
+      <UnifiedHeader />
+      <main className="flex-grow w-full">
+        <div className="pt-[105px] md:pt-[115px]">
+          <HeroSection />
+        </div>
+        <CategoriesSection />
+        <FeaturedPlantsSection />
+        <YouTubeSection />
+        <TestimonialsSection />
+      </main>
+      <Footer />
+      <WhatsAppButton />
+    </>
+  )
+}
+
+function CatalogPage() {
+  return (
+    <>
+      <UnifiedHeader showSearch={true} />
+      <div className="pt-20 sm:pt-24 md:pt-28">
+        <Catalog />
+      </div>
+      <CatalogFooter />
+      <WhatsAppButton />
+    </>
+  )
+}
+
+function AboutPage() {
+  return (
+    <>
+      <UnifiedHeader />
+      <div className="pt-20 sm:pt-24 md:pt-28">
+        <About />
+      </div>
+      <AboutFooter />
+      <WhatsAppButton />
+    </>
+  )
+}
+
+function ContactPage() {
+  return (
+    <>
+      <UnifiedHeader />
+      <div className="pt-20 sm:pt-24 md:pt-28">
+        <Contact />
+      </div>
+      <ContactFooter />
+      <WhatsAppButton />
+    </>
+  )
+}
+
+function App() {
+  return (
+    <CartProvider>
+      <BrowserRouter>
+        <AppContent />
       </BrowserRouter>
     </CartProvider>
   )

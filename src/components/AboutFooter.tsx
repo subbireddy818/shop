@@ -6,24 +6,11 @@ export const AboutFooter: React.FC = () => {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
           <div className="col-span-1 md:col-span-2">
-            <div className="flex items-center gap-4 text-gray-900 dark:text-white">
-              <div className="size-6 text-primary">
-                <svg fill="none" viewBox="0 0 48 48" xmlns="http://www.w3.org/2000/svg">
-                  <g clipPath="url(#clip0_footer_319)">
-                    <path d="M8.57829 8.57829C5.52816 11.6284 3.451 15.5145 2.60947 19.7452C1.76794 23.9758 2.19984 28.361 3.85056 32.3462C5.50128 36.3314 8.29667 39.7376 11.8832 42.134C15.4698 44.5305 19.6865 45.8096 24 45.8096C28.3135 45.8096 32.5302 44.5305 36.1168 42.134C39.7033 39.7375 42.4987 36.3314 44.1494 32.3462C45.8002 28.361 46.2321 23.9758 45.3905 19.7452C44.549 15.5145 42.4718 11.6284 39.4217 8.57829L24 24L8.57829 8.57829Z" fill="currentColor" />
-                  </g>
-                  <defs>
-                    <clipPath id="clip0_footer_319">
-                      <rect fill="white" height="48" width="48" />
-                    </clipPath>
-                  </defs>
-                </svg>
-              </div>
-              <h2 className="text-lg font-bold tracking-tight">Edhi Yaaparam</h2>
+            <div className="flex items-center gap-4 text-primary">
+              <h2 className="text-2xl font-display font-bold tracking-tight">Sacred Relm</h2>
             </div>
-            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 max-w-sm">
-              Nurturing Green Spaces, One Plant at a Time. Your trusted partner in gardening, based
-              in the heart of Hyderabad.
+            <p className="mt-4 text-sm text-gray-600 dark:text-gray-400 max-w-sm font-body">
+              Bringing Devotion to Your Doorstep with Authentic Spiritual Products. Your trusted partner in your spiritual journey.
             </p>
           </div>
           <div>
@@ -72,8 +59,8 @@ export const AboutFooter: React.FC = () => {
             </div>
           </div>
         </div>
-        <div className="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8 text-sm text-gray-500 dark:text-gray-400 text-center">
-          <p>© 2024 Edhi Yaaparam. All rights reserved.</p>
+        <div className="mt-8 border-t border-gray-200 dark:border-gray-800 pt-8 text-sm text-gray-500 dark:text-gray-400 text-center font-body">
+          <p>© 2025 Sacred Relm. All rights reserved.</p>
         </div>
       </div>
     </footer>

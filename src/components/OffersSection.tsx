@@ -23,11 +23,11 @@ export const OffersSection: React.FC = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex flex-col sm:flex-row items-start sm:items-center justify-between mb-6 sm:mb-8 gap-4">
           <div>
-            <h2 className="text-2xl sm:text-3xl md:text-4xl font-black text-text-light dark:text-text-dark mb-2">
-              Special Offers
+            <h2 className="text-2xl sm:text-3xl md:text-4xl font-display font-bold text-text-light dark:text-text-dark mb-2">
+              Devotional <span className="text-primary">Deals</span>
             </h2>
-            <p className="text-base sm:text-lg text-text-light/70 dark:text-text-dark/70">
-              Special Deals for this Week
+            <p className="text-base sm:text-lg text-text-light/70 dark:text-text-dark/70 font-body">
+              Special Offers for this Divine Week
             </p>
           </div>
           <button
@@ -52,7 +52,7 @@ export const OffersSection: React.FC = () => {
                   style={{ backgroundImage: `url("${plant.image}")` }}
                 />
                 <div className="absolute top-3 left-3">
-                  <span className="px-3 py-1 bg-red-500 text-white text-xs font-bold rounded-full">
+                  <span className="px-3 py-1 bg-subtle-light text-white text-xs font-bold rounded-full shadow-lg">
                     Save {plant.discount}%
                   </span>
                 </div>

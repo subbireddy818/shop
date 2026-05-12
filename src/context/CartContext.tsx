@@ -6,7 +6,9 @@ interface CartItem extends Plant {
 }
 
 interface CartContextType {
-  cartItems: CartItem[]
+  cart: CartItem[]
+  isDrawerOpen: boolean
+  setIsDrawerOpen: (isOpen: boolean) => void
   addToCart: (plant: Plant) => void
   removeFromCart: (plantId: number) => void
   updateQuantity: (plantId: number, quantity: number) => void
@@ -18,17 +20,18 @@ interface CartContextType {
 const CartContext = createContext<CartContextType | undefined>(undefined)
 
 export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children }) => {
-  const [cartItems, setCartItems] = useState<CartItem[]>(() => {
+  const [cart, setCart] = useState<CartItem[]>(() => {
     const saved = localStorage.getItem('cart')
     return saved ? JSON.parse(saved) : []
   })
+  const [isDrawerOpen, setIsDrawerOpen] = useState(false)
 
   useEffect(() => {
-    localStorage.setItem('cart', JSON.stringify(cartItems))
-  }, [cartItems])
+    localStorage.setItem('cart', JSON.stringify(cart))
+  }, [cart])
 
   const addToCart = (plant: Plant) => {
-    setCartItems(prev => {
+    setCart(prev => {
       const existing = prev.find(item => item.id === plant.id)
       if (existing) {
         return prev.map(item =>
@@ -37,10 +40,12 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       }
       return [...prev, { ...plant, quantity: 1 }]
     })
+    // Automatically open the drawer when an item is added
+    setIsDrawerOpen(true)
   }
 
   const removeFromCart = (plantId: number) => {
-    setCartItems(prev => prev.filter(item => item.id !== plantId))
+    setCart(prev => prev.filter(item => item.id !== plantId))
   }
 
   const updateQuantity = (plantId: number, quantity: number) => {
@@ -48,22 +53,23 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
       removeFromCart(plantId)
       return
     }
-    setCartItems(prev =>
+    setCart(prev =>
       prev.map(item => (item.id === plantId ? { ...item, quantity } : item))
     )
   }
 
   const clearCart = () => {
-    setCartItems([])
+    setCart([])
   }
 
   const getTotalItems = () => {
-    return cartItems.reduce((sum, item) => sum + item.quantity, 0)
+    return cart.reduce((sum, item) => sum + item.quantity, 0)
   }
 
   const getTotalPrice = () => {
-    return cartItems.reduce((sum, item) => {
-      const price = parseInt(item.price.replace('₹', '').replace(',', ''))
+    return cart.reduce((sum, item) => {
+      const priceStr = item.price.replace(/[^\d]/g, '')
+      const price = parseInt(priceStr) || 0
       return sum + price * item.quantity
     }, 0)
   }
@@ -71,7 +77,9 @@ export const CartProvider: React.FC<{ children: React.ReactNode }> = ({ children
   return (
     <CartContext.Provider
       value={{
-        cartItems,
+        cart,
+        isDrawerOpen,
+        setIsDrawerOpen,
         addToCart,
         removeFromCart,
         updateQuantity,
@@ -92,4 +100,3 @@ export const useCart = () => {
   }
   return context
 }
-

@@ -2,38 +2,38 @@ import React from 'react'
 
 const features = [
   {
-    icon: 'group',
-    title: '150K+ YouTube Community',
-    description: 'Join a thriving community of plant lovers on our "Edhi Yaaparam" channel.'
+    icon: 'favorite',
+    title: '50,000+ Happy Devotees',
+    description: 'Serving thousands of satisfied customers across India with pure devotion.'
   },
   {
-    icon: 'spa',
-    title: 'Healthy Nursery-Grown Plants',
-    description: 'Receive robust, healthy plants grown with expert care.'
+    icon: 'verified',
+    title: '200+ Authentic Products',
+    description: 'Carefully curated spiritual items, energized and authentic.'
   },
   {
-    icon: 'home_and_garden',
-    title: 'Home Garden Setup Support',
-    description: 'We help you create the perfect green space in your home.'
+    icon: 'local_shipping',
+    title: 'Pan India Delivery',
+    description: 'Safe and timely delivery of your sacred items to your doorstep.'
   },
   {
-    icon: 'support_agent',
-    title: 'Guidance for Beginners & Farmers',
-    description: 'Honest farming tips and support for every stage of your journey.'
+    icon: 'psychology',
+    title: 'Expert Spiritual Advisors',
+    description: 'Guidance on rituals, products, and your spiritual journey.'
   }
 ]
 
 export const WhyChooseSection: React.FC = () => {
   return (
-    <section className="w-full py-16 md:py-24 lg:py-32">
+    <section className="w-full py-16 md:py-24 lg:py-32 bg-background-light">
       <div className="max-w-7xl mx-auto px-6 lg:px-8">
         <div className="flex flex-col gap-12 md:gap-16">
           <div className="flex flex-col items-center gap-6 text-center animate-fade-in-up">
-            <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold leading-tight tracking-tight text-text-light dark:text-text-dark max-w-3xl">
-              Why Choose <span className="gradient-text">Pavan Durga Nursery</span>?
+            <h2 className="text-3xl md:text-4xl lg:text-5xl font-display font-bold leading-tight tracking-tight text-text-light dark:text-text-dark max-w-3xl">
+              Why Choose <span className="gradient-text">Sacred Relm</span>?
             </h2>
-            <p className="text-lg md:text-xl text-subtle-light dark:text-subtle-dark max-w-2xl leading-relaxed">
-              Your trusted partner in gardening, from our nursery to your home.
+            <p className="text-lg md:text-xl text-subtle-light dark:text-subtle-dark max-w-2xl leading-relaxed font-body">
+              Your trusted partner in your spiritual journey, bringing devotion to your home.
             </p>
           </div>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">

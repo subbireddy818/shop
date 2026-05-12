@@ -5,7 +5,7 @@ import { useCart } from '../context/CartContext'
 
 export const Checkout: React.FC = () => {
   const navigate = useNavigate()
-  const { cartItems, getTotalPrice, clearCart } = useCart()
+  const { cart, getTotalPrice, clearCart } = useCart()
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -33,7 +33,7 @@ export const Checkout: React.FC = () => {
     navigate('/')
   }
 
-  if (cartItems.length === 0) {
+  if (cart.length === 0) {
     return (
       <div className="relative flex min-h-screen w-full flex-col bg-background-light dark:bg-background-dark overflow-x-hidden">
         <UnifiedHeader />
@@ -199,7 +199,7 @@ export const Checkout: React.FC = () => {
               <div className="sticky top-24 sm:top-32 p-4 sm:p-6 rounded-lg sm:rounded-xl bg-white dark:bg-gray-800/50 border border-border-light dark:border-border-dark shadow-lg">
                 <h2 className="text-lg sm:text-xl font-bold text-text-light dark:text-text-dark mb-4 sm:mb-6">Order Summary</h2>
                 <div className="space-y-2 sm:space-y-3 mb-4 sm:mb-6">
-                  {cartItems.map((item) => (
+                  {cart.map((item) => (
                     <div key={item.id} className="flex justify-between text-xs sm:text-sm text-text-light/70 dark:text-text-dark/70">
                       <span className="truncate pr-2">{item.name} x{item.quantity}</span>
                       <span className="flex-shrink-0">₹{(parseInt(item.price.replace('₹', '').replace(',', '')) * item.quantity).toLocaleString()}</span>
