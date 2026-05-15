@@ -106,7 +106,7 @@
             "icon_size": 100,
             "icon_size_mobile": 80,
             "border_width": 2,
-            "border_color": "#D4AF37",
+            "border_color": "#d4af37",
             "image_background": "#f4f4f4",
             "item_spacing": 30,
             "item_spacing_mobile": 15,
@@ -125,6 +125,10 @@
         "ai_gen_block_56f4079_iC3rWb"
       ],
       "settings": {}
+    },
+    "1778834207e9f2a764": {
+      "type": "_blocks",
+      "settings": {}
     }
   },
   "order": [
@@ -133,6 +137,7 @@
     "trust_badges",
     "featured_products",
     "1778831011ed9922e0",
-    "177883123225355e71"
+    "177883123225355e71",
+    "1778834207e9f2a764"
   ]
 }
