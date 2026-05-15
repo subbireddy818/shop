@@ -129,6 +129,49 @@
     "1778834207e9f2a764": {
       "type": "_blocks",
       "settings": {}
+    },
+    "177883437570c879ae": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_6dd5bc7_LbxDKH": {
+          "type": "ai_gen_block_6dd5bc7",
+          "settings": {
+            "section_padding": 40,
+            "background_color": "#FDF6EC",
+            "icon_size": 100,
+            "mobile_icon_size": 80,
+            "icon_spacing": 30,
+            "mobile_icon_spacing": 15,
+            "border_width": 2,
+            "border_color": "#D4AF37",
+            "label_font_size": 13,
+            "mobile_label_font_size": 11,
+            "label_color": "#333333",
+            "scrollbar_color": "#D4AF37",
+            "collection_1": "",
+            "label_1": "",
+            "collection_2": "",
+            "label_2": "",
+            "collection_3": "",
+            "label_3": "",
+            "collection_4": "",
+            "label_4": "",
+            "collection_5": "",
+            "label_5": "",
+            "collection_6": "",
+            "label_6": "",
+            "collection_7": "",
+            "label_7": "",
+            "collection_8": "",
+            "label_8": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_6dd5bc7_LbxDKH"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -138,6 +181,7 @@
     "featured_products",
     "1778831011ed9922e0",
     "177883123225355e71",
-    "1778834207e9f2a764"
+    "1778834207e9f2a764",
+    "177883437570c879ae"
   ]
 }
