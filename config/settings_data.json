@@ -1,5 +1,31 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
-  "current": "Default",
+  "current": {
+    "sections": {
+      "header": {
+        "type": "header",
+        "settings": {
+          "menu": "main-menu",
+          "announcement_text": "🕉️ Authentic Spiritual Products | Free Shipping on Orders Over ₹1,999 | 24/7 Support Available"
+        }
+      },
+      "footer": {
+        "type": "footer",
+        "settings": {
+          "description": "Sacred Realm is dedicated to bringing authentic spiritual heritage and divine energy tools into every home."
+        }
+      }
+    },
+    "content_for_index": []
+  },
   "presets": {
     "Default": {
       "sections": {

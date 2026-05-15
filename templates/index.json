@@ -1,11 +1,22 @@
+/*
+ * ------------------------------------------------------------
+ * IMPORTANT: The contents of this file are auto-generated.
+ *
+ * This file may be updated by the Shopify admin theme editor
+ * or related systems. Please exercise caution as any changes
+ * made to this file may be overwritten.
+ * ------------------------------------------------------------
+ */
 {
   "sections": {
     "hero": {
       "type": "hero",
       "settings": {
-        "title": "Trusted by 50,000+ Devotees",
         "subheading": "Sacred Realm Heritage",
-        "text": "Bringing Devotion to Your Doorstep with Authentic Spiritual Products."
+        "title": "Trusted by 50,000+ Devotees",
+        "text": "Bringing Devotion to Your Doorstep with Authentic Spiritual Products.",
+        "button_label": "Shop Collection",
+        "button_link": ""
       }
     },
     "categories": {
@@ -19,7 +30,11 @@
     "featured_products": {
       "type": "featured-products",
       "settings": {
-        "title": "Best Sellers"
+        "title": "Best Sellers",
+        "text": "Explore timeless spiritual idols and energy tools inspired by the teachings.",
+        "collection": "",
+        "limit": 4,
+        "show_view_all": true
       }
     }
   },
