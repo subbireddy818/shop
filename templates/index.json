@@ -40,6 +40,42 @@
     "1778831011ed9922e0": {
       "type": "_blocks",
       "blocks": {
+        "ai_gen_block_56f4079_qwW8WQ": {
+          "type": "ai_gen_block_56f4079",
+          "name": "Collection icons row",
+          "settings": {
+            "section_title": "",
+            "title_alignment": "center",
+            "section_padding": 30,
+            "container_max_width": 1200,
+            "background_color": "#ffffff",
+            "collection_1": "",
+            "collection_2": "",
+            "collection_3": "",
+            "collection_4": "",
+            "collection_5": "",
+            "collection_6": "",
+            "collection_7": "",
+            "collection_8": "",
+            "collection_9": "",
+            "collection_10": "",
+            "icon_size": 100,
+            "icon_size_mobile": 80,
+            "border_width": 2,
+            "border_color": "#D4AF37",
+            "image_background": "#f4f4f4",
+            "item_spacing": 30,
+            "item_spacing_mobile": 15,
+            "label_spacing": 10,
+            "title_spacing": 20,
+            "title_size": 24,
+            "title_color": "#000000",
+            "label_size": 14,
+            "label_color": "#000000",
+            "scrollbar_color": "#cccccc"
+          },
+          "blocks": {}
+        },
         "ai_gen_block_860bacb_ibyiQc": {
           "type": "ai_gen_block_860bacb",
           "settings": {
@@ -78,6 +114,7 @@
         }
       },
       "block_order": [
+        "ai_gen_block_56f4079_qwW8WQ",
         "ai_gen_block_860bacb_ibyiQc"
       ],
       "settings": {}
@@ -137,17 +174,17 @@
           "type": "ai_gen_block_6dd5bc7",
           "settings": {
             "section_padding": 40,
-            "background_color": "#FDF6EC",
+            "background_color": "#fdf6ec",
             "icon_size": 100,
             "mobile_icon_size": 80,
             "icon_spacing": 30,
             "mobile_icon_spacing": 15,
             "border_width": 2,
-            "border_color": "#D4AF37",
+            "border_color": "#d4af37",
             "label_font_size": 13,
             "mobile_label_font_size": 11,
             "label_color": "#333333",
-            "scrollbar_color": "#D4AF37",
+            "scrollbar_color": "#d4af37",
             "collection_1": "",
             "label_1": "",
             "collection_2": "",
