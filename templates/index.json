@@ -21,10 +21,10 @@
             "title_spacing": 20,
             "section_padding": 40,
             "max_width": 1200,
-            "icon_size": 100,
+            "icon_size": 90,
             "icon_size_mobile": 80,
             "item_spacing": 20,
-            "border_width": 2,
+            "border_width": 1,
             "hover_scale": 1.1,
             "label_size": 14,
             "label_spacing": 10,
@@ -35,16 +35,16 @@
             "label_color": "#333333",
             "label_hover_color": "#000000",
             "scrollbar_color": "#cccccc",
-            "collection_1": "{{ closest.collection }}",
+            "collection_1": "rudraksha",
             "collection_2": "amethyst",
             "collection_3": "karungali",
             "collection_4": "pyrite",
             "collection_5": "rose-quartz",
             "collection_6": "rudraksha",
             "collection_7": "sandalwood",
-            "collection_8": "",
+            "collection_8": "amethyst",
             "collection_9": "sphatik",
-            "collection_10": ""
+            "collection_10": "rose-quartz"
           },
           "blocks": {}
         }
@@ -136,7 +136,7 @@
         "ai_gen_block_6dd5bc7_LbxDKH": {
           "type": "ai_gen_block_6dd5bc7",
           "settings": {
-            "section_padding": 40,
+            "section_padding": 10,
             "background_color": "#fdf6ec",
             "icon_size": 100,
             "mobile_icon_size": 80,
@@ -172,6 +172,67 @@
         "ai_gen_block_6dd5bc7_LbxDKH"
       ],
       "settings": {}
+    },
+    "177883724498096b4d": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_ebec7c9_w9YqT3": {
+          "type": "ai_gen_block_ebec7c9",
+          "settings": {
+            "desktop_width_percent": 100,
+            "section_padding": 40,
+            "icon_spacing": 30,
+            "icon_size": 120,
+            "icon_background_color": "#ffffff",
+            "icon_border_color": "#e0e0e0",
+            "icon_border_width": 2,
+            "background_color": "#ffffff",
+            "title_color": "#000000",
+            "title_font_size": 14,
+            "collection_1": "",
+            "collection_2": "",
+            "collection_3": "",
+            "collection_4": "",
+            "collection_5": "",
+            "collection_6": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_ebec7c9_w9YqT3"
+      ],
+      "settings": {}
+    },
+    "177883759619d02018": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_b327095_37b8qB": {
+          "type": "ai_gen_block_b327095",
+          "settings": {
+            "collection_1": "",
+            "collection_2": "",
+            "collection_3": "",
+            "collection_4": "",
+            "collection_5": "",
+            "collection_6": "",
+            "desktop_width_percent": 100,
+            "icon_spacing": 30,
+            "section_padding": 40,
+            "icon_size": 120,
+            "icon_background_color": "#FDF6EC",
+            "border_width": 2,
+            "border_color": "#D4AF37",
+            "title_font_size": 16,
+            "title_color": "#6A1039"
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_b327095_37b8qB"
+      ],
+      "settings": {}
     }
   },
   "order": [
@@ -182,6 +243,8 @@
     "featured_products",
     "177883123225355e71",
     "1778834207e9f2a764",
-    "177883437570c879ae"
+    "177883437570c879ae",
+    "177883724498096b4d",
+    "177883759619d02018"
   ]
 }
