@@ -9,6 +9,51 @@
  */
 {
   "sections": {
+    "1778831011ed9922e0": {
+      "type": "_blocks",
+      "blocks": {
+        "ai_gen_block_860bacb_ibyiQc": {
+          "type": "ai_gen_block_860bacb",
+          "settings": {
+            "section_title": "",
+            "title_alignment": "center",
+            "title_size": 24,
+            "title_spacing": 20,
+            "section_padding": 40,
+            "max_width": 1200,
+            "icon_size": 100,
+            "icon_size_mobile": 80,
+            "item_spacing": 20,
+            "border_width": 2,
+            "hover_scale": 1.1,
+            "label_size": 14,
+            "label_spacing": 10,
+            "background_color": "#ffffff",
+            "title_color": "#000000",
+            "border_color": "#e0e0e0",
+            "image_background": "#f5f5f5",
+            "label_color": "#333333",
+            "label_hover_color": "#000000",
+            "scrollbar_color": "#cccccc",
+            "collection_1": "{{ closest.collection }}",
+            "collection_2": "amethyst",
+            "collection_3": "karungali",
+            "collection_4": "pyrite",
+            "collection_5": "rose-quartz",
+            "collection_6": "rudraksha",
+            "collection_7": "sandalwood",
+            "collection_8": "",
+            "collection_9": "sphatik",
+            "collection_10": ""
+          },
+          "blocks": {}
+        }
+      },
+      "block_order": [
+        "ai_gen_block_860bacb_ibyiQc"
+      ],
+      "settings": {}
+    },
     "hero": {
       "type": "hero",
       "settings": {
@@ -33,91 +78,9 @@
         "title": "Best Sellers",
         "text": "Explore timeless spiritual idols and energy tools inspired by the teachings.",
         "collection": "",
-        "limit": 4,
+        "limit": 8,
         "show_view_all": true
       }
-    },
-    "1778831011ed9922e0": {
-      "type": "_blocks",
-      "blocks": {
-        "ai_gen_block_56f4079_qwW8WQ": {
-          "type": "ai_gen_block_56f4079",
-          "name": "Collection icons row",
-          "settings": {
-            "section_title": "",
-            "title_alignment": "center",
-            "section_padding": 30,
-            "container_max_width": 1200,
-            "background_color": "#ffffff",
-            "collection_1": "",
-            "collection_2": "",
-            "collection_3": "",
-            "collection_4": "",
-            "collection_5": "",
-            "collection_6": "",
-            "collection_7": "",
-            "collection_8": "",
-            "collection_9": "",
-            "collection_10": "",
-            "icon_size": 100,
-            "icon_size_mobile": 80,
-            "border_width": 2,
-            "border_color": "#D4AF37",
-            "image_background": "#f4f4f4",
-            "item_spacing": 30,
-            "item_spacing_mobile": 15,
-            "label_spacing": 10,
-            "title_spacing": 20,
-            "title_size": 24,
-            "title_color": "#000000",
-            "label_size": 14,
-            "label_color": "#000000",
-            "scrollbar_color": "#cccccc"
-          },
-          "blocks": {}
-        },
-        "ai_gen_block_860bacb_ibyiQc": {
-          "type": "ai_gen_block_860bacb",
-          "settings": {
-            "section_title": "",
-            "title_alignment": "center",
-            "title_size": 24,
-            "title_spacing": 20,
-            "section_padding": 40,
-            "max_width": 1200,
-            "icon_size": 100,
-            "icon_size_mobile": 80,
-            "item_spacing": 20,
-            "border_width": 2,
-            "hover_scale": 1.1,
-            "label_size": 14,
-            "label_spacing": 10,
-            "background_color": "#ffffff",
-            "title_color": "#000000",
-            "border_color": "#e0e0e0",
-            "image_background": "#f5f5f5",
-            "label_color": "#333333",
-            "label_hover_color": "#000000",
-            "scrollbar_color": "#cccccc",
-            "collection_1": "",
-            "collection_2": "",
-            "collection_3": "",
-            "collection_4": "",
-            "collection_5": "",
-            "collection_6": "",
-            "collection_7": "",
-            "collection_8": "",
-            "collection_9": "",
-            "collection_10": ""
-          },
-          "blocks": {}
-        }
-      },
-      "block_order": [
-        "ai_gen_block_56f4079_qwW8WQ",
-        "ai_gen_block_860bacb_ibyiQc"
-      ],
-      "settings": {}
     },
     "177883123225355e71": {
       "type": "_blocks",
@@ -212,11 +175,11 @@
     }
   },
   "order": [
+    "1778831011ed9922e0",
     "hero",
     "categories",
     "trust_badges",
     "featured_products",
-    "1778831011ed9922e0",
     "177883123225355e71",
     "1778834207e9f2a764",
     "177883437570c879ae"
