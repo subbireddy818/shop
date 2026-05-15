@@ -1,109 +1,180 @@
-<header class="fixed top-0 left-0 right-0 z-50 w-full transition-all duration-300 bg-white shadow-sm border-b border-gray-100">
-  {% comment %} 1. Top Bar {% endcomment %}
-  <div class="w-full bg-[#FDF6EC] border-b border-[#D4AF37]/10 py-1 hidden md:block">
-    <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center text-[10px] font-heading font-bold tracking-[1.2px] uppercase text-[#6A1039]/80">
-      <div>{{ section.settings.announcement_text }}</div>
+<header class="fixed top-0 left-0 right-0 z-50 w-full bg-[#FDF6EC] shadow-sm">
+
+  {% comment %} 1. Top Announcement Bar {% endcomment %}
+  <div class="w-full bg-[#1A1A1A] py-1.5 hidden md:block">
+    <div class="max-w-[1400px] mx-auto px-6 flex justify-between items-center text-[11px] font-heading font-semibold tracking-[1px] text-white/90">
+      <div class="flex items-center gap-2">
+        <span class="material-symbols-outlined text-[14px] text-[#D4AF37]">local_shipping</span>
+        <span>{{ section.settings.announcement_text }}</span>
+      </div>
       <div class="flex gap-6">
-        <a href="/apps/track-order" class="hover:text-[#6A1039] transition-colors">Track Order</a>
-        <a href="/pages/support" class="hover:text-[#6A1039] transition-colors">Support</a>
+        <a href="/apps/track-order" class="hover:text-[#D4AF37] transition-colors">Track Order</a>
+        <a href="/pages/support" class="hover:text-[#D4AF37] transition-colors">Support</a>
       </div>
     </div>
   </div>
 
-  {% comment %} 2. Unified Main Row: Logo, Nav, Search, Icons {% endcomment %}
-  <div class="max-w-[1400px] mx-auto px-6 py-1.5 flex items-center justify-between gap-6">
-    {% comment %} Logo {% endcomment %}
+  {% comment %} 2. Main Row: Logo | Search | Icons {% endcomment %}
+  <div class="max-w-[1400px] mx-auto px-6 py-3 flex items-center gap-6">
+
     <a href="{{ routes.root_url }}" class="flex-shrink-0 group">
       {% if section.settings.logo != blank %}
-        <img 
-          src="{{ section.settings.logo | image_url: width: 400 }}" 
-          alt="{{ shop.name }}" 
-          class="h-16 md:h-20 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
+        <img
+          src="{{ section.settings.logo | image_url: width: 400 }}"
+          alt="{{ shop.name }}"
+          class="h-14 md:h-16 w-auto object-contain transition-transform duration-300 group-hover:scale-105"
         >
       {% else %}
-        <span class="font-heading font-bold text-xl">{{ shop.name }}</span>
+        <span class="font-heading font-bold text-2xl text-[#6A1039]">{{ shop.name }}</span>
       {% endif %}
     </a>
 
-    {% comment %} Navigation Links {% endcomment %}
-    <nav class="hidden lg:flex items-center gap-8">
-      {% for link in linklists[section.settings.menu].links %}
-        <a
-          href="{{ link.url }}"
-          class="font-heading font-bold text-[14px] tracking-[2px] transition-all relative py-1 hover:text-[#6A1039] group whitespace-nowrap {% if link.active %}text-[#6A1039]{% else %}text-[#1A1A1A]{% endif %}"
-        >
-          {{ link.title | uppercase }}
-          <span class="absolute bottom-0 left-0 w-full h-0.5 bg-[#6A1039] transition-transform duration-300 transform {% if link.active %}scale-x-100{% else %}scale-x-0 group-hover:scale-x-100{% endif %}" />
-        </a>
-      {% endfor %}
-    </nav>
-
-    {% comment %} Search Bar {% endcomment %}
-    <div class="flex-1 max-w-sm relative hidden md:block">
-      <form action="{{ routes.search_url }}" method="get" role="search" class="relative flex items-center bg-gray-50 rounded-full border border-gray-200 focus-within:border-[#6A1039] focus-within:ring-2 focus-within:ring-[#6A1039]/10 transition-all duration-300">
-        <span class="material-symbols-outlined absolute left-4 text-gray-400 text-[18px]">search</span>
+    <div class="flex-1 hidden md:block">
+      <form action="{{ routes.search_url }}" method="get" role="search"
+        class="relative flex items-center bg-white rounded-full border border-gray-200 shadow-sm focus-within:border-[#6A1039] focus-within:ring-2 focus-within:ring-[#6A1039]/10 transition-all duration-300">
+        <span class="material-symbols-outlined absolute left-4 text-gray-400 text-[20px]">search</span>
         <input
           type="text"
           name="q"
-          placeholder="Search..."
-          class="w-full bg-transparent pl-11 pr-4 py-2 text-[12px] font-body text-[#1A1A1A] placeholder-gray-400 focus:outline-none rounded-full"
+          placeholder="{{ section.settings.search_placeholder | default: 'Search...' }}"
+          class="w-full bg-transparent pl-12 pr-5 py-2.5 text-[13px] font-body text-[#1A1A1A] placeholder-gray-400 focus:outline-none rounded-full"
         >
       </form>
     </div>
 
-    {% comment %} Action Icons {% endcomment %}
-    <div class="flex items-center gap-4">
-      <a href="{{ routes.account_url }}" class="text-[#1A1A1A] hover:text-[#6A1039] transition-colors">
+    <div class="flex items-center gap-4 ml-auto md:ml-0">
+      <a href="{{ routes.account_url }}" class="text-[#1A1A1A] hover:text-[#6A1039] transition-colors hidden md:block" aria-label="Account">
         <span class="material-symbols-outlined text-[24px]">person</span>
       </a>
-      <a href="{{ routes.cart_url }}" id="cart-icon-target" class="relative text-[#1A1A1A] hover:text-[#6A1039] transition-colors">
-        <span class="material-symbols-outlined text-[24px]">shopping_cart</span>
-        <span class="absolute -top-1 -right-1 bg-[#6A1039] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center cart-count">
-          {{ cart.item_count }}
-        </span>
+      <a href="{{ routes.cart_url }}" class="relative text-[#1A1A1A] hover:text-[#6A1039] transition-colors" aria-label="Cart">
+        <span class="material-symbols-outlined text-[24px]">shopping_bag</span>
+        {% if cart.item_count > 0 %}
+          <span class="absolute -top-1.5 -right-1.5 bg-[#6A1039] text-white text-[9px] font-bold w-4 h-4 rounded-full flex items-center justify-center cart-count leading-none">
+            {{ cart.item_count }}
+          </span>
+        {% endif %}
       </a>
-      {% comment %} Mobile Menu Icon {% endcomment %}
-      <button class="md:hidden text-[#1A1A1A]">
+      <button id="mobile-menu-toggle" class="md:hidden text-[#1A1A1A]" aria-label="Menu">
         <span class="material-symbols-outlined text-[24px]">menu</span>
       </button>
     </div>
   </div>
 
-  {% comment %} Mobile Search Bar {% endcomment %}
+  {% comment %} 3. Navigation Bar {% endcomment %}
+  <div class="border-t border-[#D4AF37]/20 hidden md:block">
+    <div class="max-w-[1400px] mx-auto px-6 flex items-center justify-between">
+      <nav class="flex items-center">
+        {% for link in linklists[section.settings.menu].links %}
+          <div class="relative group">
+            <a
+              href="{{ link.url }}"
+              class="flex items-center gap-1 px-4 py-3 font-heading font-bold text-[12px] tracking-[1.5px] uppercase transition-all duration-200 whitespace-nowrap border-b-2
+                {% if link.active %}text-[#6A1039] border-[#6A1039]{% else %}text-[#1A1A1A] border-transparent hover:text-[#6A1039] hover:border-[#6A1039]{% endif %}"
+            >
+              {{ link.title }}
+              {% if link.links.size > 0 %}
+                <span class="material-symbols-outlined text-[14px]">expand_more</span>
+              {% endif %}
+            </a>
+            {% if link.links.size > 0 %}
+              <div class="absolute top-full left-0 hidden group-hover:block bg-white shadow-xl border border-gray-100 rounded-b-lg min-w-[200px] z-50 py-2">
+                {% for child_link in link.links %}
+                  <a href="{{ child_link.url }}"
+                    class="block px-5 py-2.5 text-[12px] font-body text-[#1A1A1A] hover:text-[#6A1039] hover:bg-[#FDF6EC] transition-colors">
+                    {{ child_link.title }}
+                  </a>
+                {% endfor %}
+              </div>
+            {% endif %}
+          </div>
+        {% endfor %}
+      </nav>
+
+      {% if section.settings.show_chat_button %}
+        <a href="{{ section.settings.chat_url | default: '#' }}"
+          class="flex items-center gap-2 bg-[#1A1A1A] hover:bg-[#6A1039] text-white text-[11px] font-heading font-bold tracking-[1px] uppercase px-5 py-2 rounded-full transition-all duration-300">
+          <span class="material-symbols-outlined text-[16px]">chat</span>
+          {{ section.settings.chat_button_text | default: 'Chat with Sevak' }}
+        </a>
+      {% endif %}
+    </div>
+  </div>
+
+  {% comment %} 4. Mobile Search {% endcomment %}
   <div class="px-4 pb-3 md:hidden">
-    <form action="{{ routes.search_url }}" method="get" class="relative flex items-center bg-gray-50 rounded-full border border-gray-200">
-      <span class="material-symbols-outlined absolute left-3 text-gray-400 text-sm">search</span>
-      <input
-        type="text"
-        name="q"
-        placeholder="Search..."
-        class="w-full bg-transparent pl-10 pr-4 py-1.5 text-xs font-body focus:outline-none"
-      />
+    <form action="{{ routes.search_url }}" method="get"
+      class="relative flex items-center bg-white rounded-full border border-gray-200 shadow-sm">
+      <span class="material-symbols-outlined absolute left-3 text-gray-400 text-[18px]">search</span>
+      <input type="text" name="q" placeholder="Search..."
+        class="w-full bg-transparent pl-10 pr-4 py-2 text-[12px] font-body focus:outline-none" />
     </form>
   </div>
+
+  {% comment %} 5. Mobile Drawer {% endcomment %}
+  <div id="mobile-menu" class="fixed inset-0 z-[100] hidden">
+    <div class="absolute inset-0 bg-black/40 backdrop-blur-sm" id="mobile-menu-overlay"></div>
+    <div class="absolute top-0 left-0 h-full w-[80%] max-w-[320px] bg-[#FDF6EC] shadow-2xl flex flex-col">
+      <div class="flex items-center justify-between px-5 py-4 border-b border-[#D4AF37]/20">
+        {% if section.settings.logo != blank %}
+          <img src="{{ section.settings.logo | image_url: width: 200 }}" alt="{{ shop.name }}" class="h-10 w-auto object-contain">
+        {% else %}
+          <span class="font-heading font-bold text-lg text-[#6A1039]">{{ shop.name }}</span>
+        {% endif %}
+        <button id="mobile-menu-close" class="text-[#1A1A1A]">
+          <span class="material-symbols-outlined text-[24px]">close</span>
+        </button>
+      </div>
+      <nav class="flex-1 overflow-y-auto px-5 py-4 flex flex-col gap-1">
+        {% for link in linklists[section.settings.menu].links %}
+          <a href="{{ link.url }}"
+            class="block py-3 border-b border-[#D4AF37]/10 font-heading font-bold text-[13px] tracking-[1.5px] uppercase
+                   {% if link.active %}text-[#6A1039]{% else %}text-[#1A1A1A]{% endif %}">
+            {{ link.title }}
+          </a>
+        {% endfor %}
+      </nav>
+      <div class="px-5 py-5 border-t border-[#D4AF37]/20">
+        <a href="{{ routes.account_url }}" class="flex items-center gap-2 text-[12px] font-heading font-semibold text-[#1A1A1A] hover:text-[#6A1039]">
+          <span class="material-symbols-outlined text-[18px]">person</span> My Account
+        </a>
+      </div>
+    </div>
+  </div>
+
 </header>
+
+<div id="header-spacer" class="w-full"></div>
+
+<script>
+  const menuToggle = document.getElementById('mobile-menu-toggle');
+  const mobileMenu = document.getElementById('mobile-menu');
+  const menuOverlay = document.getElementById('mobile-menu-overlay');
+  const menuClose = document.getElementById('mobile-menu-close');
+
+  menuToggle?.addEventListener('click', () => { mobileMenu.classList.remove('hidden'); document.body.style.overflow = 'hidden'; });
+  menuOverlay?.addEventListener('click', () => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; });
+  menuClose?.addEventListener('click', () => { mobileMenu.classList.add('hidden'); document.body.style.overflow = ''; });
+
+  function setSpacerHeight() {
+    const header = document.querySelector('header');
+    const spacer = document.getElementById('header-spacer');
+    if (header && spacer) spacer.style.height = header.offsetHeight + 'px';
+  }
+  setSpacerHeight();
+  window.addEventListener('resize', setSpacerHeight);
+</script>
 
 {% schema %}
 {
   "name": "Header",
   "settings": [
-    {
-      "type": "image_picker",
-      "id": "logo",
-      "label": "Logo"
-    },
-    {
-      "type": "link_list",
-      "id": "menu",
-      "label": "Menu",
-      "default": "main-menu"
-    },
-    {
-      "type": "text",
-      "id": "announcement_text",
-      "label": "Announcement Text",
-      "default": "Free shipping on orders over ₹1,999"
-    }
+    { "type": "image_picker", "id": "logo", "label": "Logo" },
+    { "type": "link_list", "id": "menu", "label": "Navigation Menu", "default": "main-menu" },
+    { "type": "text", "id": "announcement_text", "label": "Announcement Text", "default": "Free delivery on orders over ₹299" },
+    { "type": "text", "id": "search_placeholder", "label": "Search Placeholder", "default": "Search for Rudraksha" },
+    { "type": "checkbox", "id": "show_chat_button", "label": "Show Chat Button", "default": true },
+    { "type": "text", "id": "chat_button_text", "label": "Chat Button Text", "default": "Chat with Sevak" },
+    { "type": "url", "id": "chat_url", "label": "Chat Button URL" }
   ]
 }
 {% endschema %}
